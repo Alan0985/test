@@ -6,7 +6,6 @@ export const ContactForm = () =>
     const initialValues = { email: '', password: '' }
     const [values, setValues] = useState( initialValues )
     const [errors, setErrors] = useState( {} )
-    const [isSubmit, setSubmit] = useState( false )
     const [checked, setChecked] = useState( false )
 
     const onChange = ( e ) =>
@@ -15,14 +14,7 @@ export const ContactForm = () =>
         setValues( { ...values, [name]: value } )
     }
 
-    useEffect( () =>
-    {
-        console.log( errors )
-        if ( Object.keys( errors ).length === 0 )
-        {
-            console.log( values )
-        }
-    }, [errors] )
+    useEffect( () => { }, [errors] )
 
     const validate = ( values ) =>
     {
@@ -59,7 +51,6 @@ export const ContactForm = () =>
     {
         e.preventDefault();
         setErrors( validate( values ) )
-        setSubmit( true )
     }
 
     return (
